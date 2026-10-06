@@ -1,0 +1,12 @@
+{
+  "name": "Sidequest — missioni per la tua crew",
+  "short_name": "Sidequest",
+  "description": "Piccole missioni, momenti da ricordare.",
+  "lang": "it",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f6f3e9",
+  "theme_color": "#151515",
+  "icons": [{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
