@@ -52,7 +52,7 @@ Registra lo schermo mentre scegli una missione, poi il risultato della crew.
 
 - Pubblica solo video realizzati dalla crew e usa audio che la piattaforma permette di riutilizzare.
 - Mostra il prodotto con clip vere; evita numeri di utenti, risultati o recensioni inventati.
-- Metti il link https://etsy-calculator-nine.vercel.app/sidequest/ in bio dopo il deploy.
+- Metti il link provvisorio https://sidequest-apr.pages.dev/ in bio dopo il deploy; aggiorna quando scegliamo il nome definitivo.
 - Leggi le regole della community prima di condividere in gruppi o forum; niente repost insistenti o DM a freddo.
 - Se pubblichi una missione pagata o affiliata, indica in modo evidente che è sponsorizzata e chi la finanzia.
 

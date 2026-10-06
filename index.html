@@ -11,13 +11,14 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="account-ads.css">
   <title>Sidequest — la vita ha bisogno di missioni secondarie</title>
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
   <header class="topbar">
     <a class="brand" href="#home" aria-label="Sidequest home"><span class="brand-icon">↗</span>sidequest<span class="brand-period">.</span></a>
-    <nav aria-label="Navigazione"><a href="#missioni">Missioni</a><a href="#crew">La crew</a><button class="button button-small" id="open-create">+ Crea una quest</button></nav>
+    <nav aria-label="Navigazione"><a href="#missioni">Missioni</a><a href="#crew">La crew</a><button class="button button-small" id="account-button">Account</button><button class="button button-small" id="open-create">+ Crea una quest</button></nav>
   </header>
   <main id="home">
     <section class="hero">
@@ -34,6 +35,7 @@
       <div class="section-top"><div><div class="eyebrow">PICCOLE IMPRESE, GRANDI PROVE FOTOGRAFICHE</div><h2>Scegli il tuo <em>livello di caos.</em></h2></div><button class="button button-outline" id="open-create-2">Inventane una ↗</button></div>
       <div class="filters" role="group" aria-label="Filtra missioni"><button class="filter active" data-filter="all">Tutte <span>✳</span></button><button class="filter" data-filter="5 min">5 minuti</button><button class="filter" data-filter="con amici">Con amici</button><button class="filter" data-filter="fuori casa">Fuori casa</button><button class="filter" data-filter="a casa">Da casa</button></div>
       <div class="quest-grid" id="quest-grid"></div>
+      <div class="ad-wrap" id="quest-ad-wrap" hidden aria-label="Spazio pubblicitario"><span>ANNUNCIO</span><ins class="adsbygoogle" id="quest-ad" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
     </section>
     <section class="crew-section" id="crew"><div class="crew-copy"><div class="eyebrow">UN LINK. LA TUA GENTE.</div><h2>Le cose sceme<br>sono meglio <em>in compagnia.</em></h2><p>Crea una stanza privata, manda l’invito alla tua crew e fate la stessa missione. Niente profili pubblici, niente gara a chi fa più like. Solo voi e le prove.</p><button class="button button-dark" id="create-room">Crea una stanza per la crew <span>↗</span></button><small>La stanza sincronizzata si attiva collegando un progetto Supabase gratuito. In alternativa puoi condividere ogni quest con il link e tenere i ricordi sul dispositivo.</small></div><div class="crew-visual"><div class="room-label"><span class="live-dot"></span> STANZA PRIVATA <span class="lock">⌑</span></div><div class="chat-bubble bubble-a">La missione di oggi è trovare un’insegna che sembra un insulto 😂<small>GIULIA · 2 MIN FA</small></div><div class="chat-bubble bubble-b">Trovata. Vado a fare le prove.</div><div class="chat-bubble bubble-c">📸 <b>prove_serie.jpg</b><small>MARCO · ORA</small></div><div class="crew-footer">LA CREW HA SBLOCCATO <b>3 MOMENTI</b> OGGI</div></div></section>
     <section class="memory-section"><div class="memory-sticker">🧃</div><div class="eyebrow">IL FEED CHE TI MERITI</div><h2>Non postare per tutti.<br><em>Ricorda insieme ai tuoi.</em></h2><p>Ogni missione finisce con una foto e una storia. I tuoi ricordi restano tuoi: salvali qui o condividili dove vuoi.</p><button class="button button-primary" id="show-memories">Apri il tuo album <span>↗</span></button><span class="hand-note">sì, puoi anche non postare niente</span></section>
@@ -44,6 +46,8 @@
   <dialog id="create-dialog" class="dialog form-dialog"><form id="create-form"><button type="button" class="dialog-close" id="close-create" aria-label="Chiudi">×</button><div class="eyebrow">DAI, INVENTANE UNA</div><h2>La tua mini <em>missione.</em></h2><label>Come si chiama?<input name="title" maxlength="55" placeholder="es. Spedizione merendina" required></label><label>Cosa bisogna fare?<textarea name="prompt" maxlength="180" placeholder="Descrivila in una frase. Più è semplice, meglio è." required></textarea></label><div class="form-row"><label>Quanto dura?<select name="duration"><option>5 min</option><option>10 min</option><option>15 min</option><option>20 min</option></select></label><label>Com’è la vibe?<select name="vibe"><option>con amici</option><option>fuori casa</option><option>a casa</option></select></label></div><button class="button button-primary" type="submit">Aggiungi la missione ↗</button></form></dialog>
   <dialog id="memories-dialog" class="dialog memories-dialog"><form method="dialog"><button class="dialog-close" aria-label="Chiudi">×</button></form><div class="eyebrow">IL TUO RULLINO SIDEQUEST</div><h2>Momenti <em>sbloccati.</em></h2><div id="memory-grid" class="memory-grid"></div></dialog>
   <dialog id="room-dialog" class="dialog form-dialog"><form id="room-form"><button type="button" class="dialog-close" id="close-room" aria-label="Chiudi">×</button><div class="eyebrow">SOLO LA TUA GENTE</div><h2>Fai partire la <em>crew.</em></h2><p class="form-hint">Crea una stanza privata con link d’invito. La sincronizzazione live si attiva quando aggiungerai le credenziali Supabase.</p><label id="room-name-label">Nome della stanza<input name="room" maxlength="32" placeholder="es. I disperati del giovedì" required></label><label>Il tuo nome nella crew<input name="nickname" maxlength="18" placeholder="es. Ale" required></label><button class="button button-primary" id="room-submit" type="submit">Crea e invita ↗</button><div id="room-result" class="room-result" aria-live="polite"></div></form></dialog>
+  <dialog id="account-dialog" class="dialog form-dialog"><button type="button" class="dialog-close" id="close-account" aria-label="Chiudi">×</button><div class="eyebrow">IL TUO PROFILO</div><h2>Progressi <em>tuoi.</em></h2><div id="account-content"></div></dialog>
+  <dialog id="shop-dialog" class="dialog form-dialog"><button type="button" class="dialog-close" id="close-shop" aria-label="Chiudi">×</button><div class="eyebrow">PICCOLE RICOMPENSE</div><h2>Spendi i tuoi <em>crediti.</em></h2><p class="form-hint">Sblocca stili per le card da condividere. I crediti non hanno valore in denaro.</p><div id="shop-content"></div></dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="config.js"></script><script type="module" src="app.js"></script>
 </body>
