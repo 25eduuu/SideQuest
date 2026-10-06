@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#151515">
+  <meta name="google-adsense-account" content="ca-pub-2365902217564104">
   <meta name="description" content="Piccole missioni, momenti da ricordare. Lancia una Sidequest con gli amici e condividete quello che succede.">
   <meta property="og:title" content="Sidequest — fai una cosa piccola, falla insieme">
   <meta property="og:description" content="Missioni improbabili, ricordi veri. Scegli una sfida e coinvolgi la tua crew.">
@@ -12,6 +13,7 @@
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="account-ads.css">
+  <link rel="stylesheet" href="social-footer.css">
   <title>Sidequest — la vita ha bisogno di missioni secondarie</title>
 </head>
 <body>
@@ -40,7 +42,34 @@
     <section class="crew-section" id="crew"><div class="crew-copy"><div class="eyebrow">UN LINK. LA TUA GENTE.</div><h2>Le cose sceme<br>sono meglio <em>in compagnia.</em></h2><p>Crea una stanza privata, manda l’invito alla tua crew e fate la stessa missione. Niente profili pubblici, niente gara a chi fa più like. Solo voi e le prove.</p><button class="button button-dark" id="create-room">Crea una stanza per la crew <span>↗</span></button><small>La stanza sincronizzata si attiva collegando un progetto Supabase gratuito. In alternativa puoi condividere ogni quest con il link e tenere i ricordi sul dispositivo.</small></div><div class="crew-visual"><div class="room-label"><span class="live-dot"></span> STANZA PRIVATA <span class="lock">⌑</span></div><div class="chat-bubble bubble-a">La missione di oggi è trovare un’insegna che sembra un insulto 😂<small>GIULIA · 2 MIN FA</small></div><div class="chat-bubble bubble-b">Trovata. Vado a fare le prove.</div><div class="chat-bubble bubble-c">📸 <b>prove_serie.jpg</b><small>MARCO · ORA</small></div><div class="crew-footer">LA CREW HA SBLOCCATO <b>3 MOMENTI</b> OGGI</div></div></section>
     <section class="memory-section"><div class="memory-sticker">🧃</div><div class="eyebrow">IL FEED CHE TI MERITI</div><h2>Non postare per tutti.<br><em>Ricorda insieme ai tuoi.</em></h2><p>Ogni missione finisce con una foto e una storia. I tuoi ricordi restano tuoi: salvali qui o condividili dove vuoi.</p><button class="button button-primary" id="show-memories">Apri il tuo album <span>↗</span></button><span class="hand-note">sì, puoi anche non postare niente</span></section>
   </main>
-  <footer><a class="brand" href="#home"><span class="brand-icon">↗</span>sidequest<span class="brand-period">.</span></a><span>Fatto per fare cose, non per scrollare.</span><div><a href="privacy.html">Privacy</a><a href="README.md">Come funziona</a></div></footer>
+  <section class="social-end" id="social" aria-labelledby="social-title">
+    <div class="social-end__inner">
+      <div class="social-end__copy">
+        <div class="eyebrow"><span class="social-end__dot"></span> LA CREW CONTINUA FUORI</div>
+        <h2 id="social-title">Chiama la crew.<br><em>Il resto viene da sé.</em></h2>
+        <p>Una missione è meglio quando qualcuno risponde «ci sto». Scegline una e falla girare.</p>
+        <div class="social-end__actions">
+          <a class="button button-primary" href="#missioni">Scegli una missione <span>↗</span></a>
+          <a class="social-follow" href="https://www.tiktok.com/@sidequestapp" target="_blank" rel="noopener noreferrer" aria-label="Segui SideQuest su TikTok, @sidequestapp">
+            <span class="social-follow__icon" aria-hidden="true">♪</span><span><small>SEGUICI SU TIKTOK</small><b>@sidequestapp</b></span><span class="social-follow__arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+      <aside class="social-end__card" aria-label="Una missione SideQuest da condividere">
+        <div class="social-end__card-top"><span>SQ / FUORI DALLO SCROLL</span><span>✳</span></div>
+        <div class="social-end__card-art" aria-hidden="true"><span>📸</span><i></i><i></i><i></i></div>
+        <p>MISSIONE PER LA CREW</p>
+        <h3>Trova una cosa normalissima. Dalle una lore assurda.</h3>
+        <div class="social-end__card-bottom"><span>5 MIN</span><span>·</span><span>IN COMPAGNIA</span><span>↗</span></div>
+      </aside>
+    </div>
+    <div class="social-end__ticker" aria-hidden="true"><span>UNA QUEST ALLA VOLTA</span><i>✳</i><span>MENO SCROLL, PIÙ STORIE</span><i>✳</i><span>PORTA LA CREW</span><i>✳</i></div>
+  </section>
+  <footer class="site-footer">
+    <a class="brand" href="#home" aria-label="SideQuest, torna all’inizio"><span class="brand-icon">↗</span>sidequest<span class="brand-period">.</span></a>
+    <span class="site-footer__motto">Fatto per fare cose, non per scrollare.</span>
+    <nav aria-label="Link a piè di pagina"><a href="#missioni">Missioni</a><a href="#crew">La crew</a><a href="privacy.html">Privacy</a></nav>
+  </footer>
 
   <dialog id="quest-dialog" class="dialog"><form method="dialog"><button class="dialog-close" aria-label="Chiudi">×</button></form><div id="quest-detail"></div></dialog>
   <dialog id="create-dialog" class="dialog form-dialog"><form id="create-form"><button type="button" class="dialog-close" id="close-create" aria-label="Chiudi">×</button><div class="eyebrow">DAI, INVENTANE UNA</div><h2>La tua mini <em>missione.</em></h2><label>Come si chiama?<input name="title" maxlength="55" placeholder="es. Spedizione merendina" required></label><label>Cosa bisogna fare?<textarea name="prompt" maxlength="180" placeholder="Descrivila in una frase. Più è semplice, meglio è." required></textarea></label><div class="form-row"><label>Quanto dura?<select name="duration"><option>5 min</option><option>10 min</option><option>15 min</option><option>20 min</option></select></label><label>Com’è la vibe?<select name="vibe"><option>con amici</option><option>fuori casa</option><option>a casa</option></select></label></div><button class="button button-primary" type="submit">Aggiungi la missione ↗</button></form></dialog>
