@@ -1,4 +1,4 @@
-const CACHE='sidequest-static-v3';
+const CACHE='sidequest-static-v4';
 const FILES=['./','./index.html','./styles.css','./account-ads.css','./social-footer.css','./app.js','./core.js','./config.js','./manifest.webmanifest','./icon.svg','./privacy.html','./ads.txt'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
