@@ -1,0 +1,18 @@
+# Files outside the Cloudflare Pages site
+/mobile/
+/marketing/
+/tests/
+/supabase-migrations/
+/supabase-schema.sql
+/SECURITY-AND-PRIVACY.md
+
+# Local secrets and machine-specific files
+.env
+.env.*
+!.env.example
+!**/.env.example
+**/.idea/
+**/node_modules/
+**/.expo/
+**/dist/
+**/web-build/
